@@ -32,7 +32,7 @@ defmodule Ethereum.Transport do
 
     ethereum_port = case System.get_env("ETHEREUM_PORT") do
       nil ->
-        Logger.error "ETHEREUM_PORT ENVIRONMENT VARIABLE NOT SET. Using 8501"
+        Logger.error "ETHEREUM_PORT ENVIRONMENT VARIABLE NOT SET. Using 8545"
         8545
       port ->
         Logger.info "ETHEREUM_PORT ENVIRONMENT VARIABLE SET. Using #{port}"
