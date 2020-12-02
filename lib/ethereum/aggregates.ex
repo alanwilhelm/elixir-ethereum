@@ -15,10 +15,11 @@ defmodule Ethereum.Aggregates do
   @spec get_recent_averages(integer()) :: {:ok, float(), float(), float()} | {:error, String.t}
   def get_recent_averages(sample_size) do
     blocks = get_recent_blocks(sample_size) 
-    average_difficulty = get_average_difficulty(blocks)
-    average_blocktime = get_average_blocktime(blocks)
-    average_nethash = average_difficulty / average_blocktime
-    {:ok, {average_blocktime, average_difficulty, average_nethash}}
+    IEx.pry
+    # average_difficulty = get_average_difficulty(blocks)
+    # average_blocktime = get_average_blocktime(blocks)
+    # average_nethash = average_difficulty / average_blocktime
+    # {:ok, {average_blocktime, average_difficulty, average_nethash}}
   end
 
   @doc """
