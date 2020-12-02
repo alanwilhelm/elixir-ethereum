@@ -33,7 +33,7 @@ defmodule Ethereum.Transport do
     ethereum_port = case System.get_env("ETHEREUM_PORT") do
       nil ->
         # Logger.error "ETHEREUM_PORT ENVIRONMENT VARIABLE NOT SET. Using 8501"
-        nil
+        8545
       port ->
         #  Logger.info "ETHEREUM_PORT ENVIRONMENT VARIABLE SET. Using #{port}"
         port
@@ -49,6 +49,7 @@ defmodule Ethereum.Transport do
     end
 
     # Requires --rpcvhosts=* on Eth Daemon - TODO: Clean up move PORT to run script
+    IEx.pry
     daemon_host = case System.get_env("ETHEREUM_USE_SSL") do
       "true" -> 
         case infura_project_id do

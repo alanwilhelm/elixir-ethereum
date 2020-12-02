@@ -14,7 +14,7 @@ defmodule Ethereum.Aggregates do
   """
   @spec get_recent_averages(integer()) :: {:ok, float(), float(), float()} | {:error, String.t}
   def get_recent_averages(sample_size) do
-    blocks = get_recent_blocks(sample_size) 
+    # blocks = get_recent_blocks(sample_size) 
     IEx.pry
     # average_difficulty = get_average_difficulty(blocks)
     # average_blocktime = get_average_blocktime(blocks)
@@ -27,7 +27,7 @@ defmodule Ethereum.Aggregates do
 
   ## Example:
       
-      iex> Ethereum.get_recent_blocks(10)
+    iex> Ethereum.get_recent_blocks(10)
   
   """
   @spec get_recent_blocks(binary()) :: float
