@@ -73,7 +73,6 @@ defmodule Ethereum.Transport do
         false ->
           result
       end    
-      IEx.pry
     {:ok, result}
   end
 
