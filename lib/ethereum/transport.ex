@@ -49,7 +49,7 @@ defmodule Ethereum.Transport do
     end
 
     # Requires --rpcvhosts=* on Eth Daemon - TODO: Clean up move PORT to run script
-    IEx.pry
+ 
     daemon_host = case System.get_env("ETHEREUM_USE_SSL") do
       "true" -> 
         case infura_project_id do
@@ -59,12 +59,13 @@ defmodule Ethereum.Transport do
       _ -> "http://" <> ethereum_host <> ":" <> ethereum_port
     end
     
-    # Logger.info "DAEMON_HOST: #{daemon_host}"
+    Logger.info "DAEMON_HOST: #{daemon_host}"
     result = 
       __MODULE__.post!(daemon_host, enc)
       |> Map.get(:body)
       |> Map.get("result")
-    # Logger.warn "#{inspect result}"
+    Logger.warn "#{inspect result}"
+    IEx.pry
     result = 
       case dehex do
         true -> 
