@@ -455,10 +455,11 @@ defmodule Ethereum.Contract do
           "0x" <> n -> n
           n -> n
         end 
+
       filter_info = Map.get(state[:filters], filter_unhex)
       event_attributes =
         get_event_attributes(state, filter_info[:contract_name], filter_info[:event_name])
-
+      IEx.pry
       {:ok, logs} = Ethereum.get_filter_logs(filter_id)
       
       Logger.warn "handle_call({:get_filter_logs})"
