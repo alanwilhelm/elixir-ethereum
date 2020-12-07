@@ -449,7 +449,12 @@ defmodule Ethereum.Contract do
     end
 
     def handle_call({:get_filter_logs, filter_id}, _from, state) do
-      "0x" <> filter_unhex = filter_id
+      # "0x" <> filter_unhex = filter_id
+      filter_unhex = 
+        case filter_id do
+          "0x" <> n -> n
+          n -> n
+        end 
       filter_info = Map.get(state[:filters], filter_unhex)
       event_attributes =
         get_event_attributes(state, filter_info[:contract_name], filter_info[:event_name])
