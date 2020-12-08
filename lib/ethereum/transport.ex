@@ -41,10 +41,10 @@ defmodule Ethereum.Transport do
 
     infura_project_id = case System.get_env("INFURA_PROJECT_ID") do
       nil ->
-        Logger.error "INFURA_PROJECT_ID ENVIRONMENT VARIABLE NOT SET. Using standard form"
+        # Logger.error "INFURA_PROJECT_ID ENVIRONMENT VARIABLE NOT SET. Using standard form"
         nil
       p ->
-        Logger.info "INFURA_PROJECT_ID ENVIRONMENT VARIABLE SET. Using #{System.get_env("INFURA_PROJECT_ID")}"
+        # Logger.info "INFURA_PROJECT_ID ENVIRONMENT VARIABLE SET. Using #{System.get_env("INFURA_PROJECT_ID")}"
         p
     end
 
