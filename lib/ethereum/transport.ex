@@ -59,12 +59,12 @@ defmodule Ethereum.Transport do
       _ -> "http://" <> ethereum_host <> ":" <> ethereum_port
     end
     
-    Logger.info "DAEMON_HOST: #{daemon_host}"
+    # Logger.info "DAEMON_HOST: #{daemon_host}"
     result = 
       __MODULE__.post!(daemon_host, enc)
       |> Map.get(:body)
       |> Map.get("result")
-    Logger.warn "#{inspect result}"
+    # Logger.warn "#{inspect result}"
     
     result = 
       case dehex do
