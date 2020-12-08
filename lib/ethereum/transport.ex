@@ -35,7 +35,7 @@ defmodule Ethereum.Transport do
         Logger.error "ETHEREUM_PORT ENVIRONMENT VARIABLE NOT SET. Using 8545"
         8545
       port ->
-        Logger.info "ETHEREUM_PORT ENVIRONMENT VARIABLE SET. Using #{port}"
+        # Logger.info "ETHEREUM_PORT ENVIRONMENT VARIABLE SET. Using #{port}"
         port
     end
 
