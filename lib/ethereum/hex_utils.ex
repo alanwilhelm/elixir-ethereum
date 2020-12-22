@@ -7,9 +7,14 @@ defmodule Ethereum.HexUtils do
   @spec hex_to_decimal(binary()) :: number()
   @doc "Converts ethereum hex string to decimal number"
   def hex_to_decimal(hex_string) do
-    hex_string
-    |> String.slice(2..-1)
-    |> String.to_integer(16)
+    case String.length(hex_string) do
+      n when n > 1 ->
+        hex_string
+        |> String.slice(2..-1)
+        |> String.to_integer(16)
+      n -> Logger.error "String error: len: #{n}"
+    end
+
   end
 
   @doc """
