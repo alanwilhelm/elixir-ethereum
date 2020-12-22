@@ -14,9 +14,9 @@ defmodule Ethereum.Conversion do
   end
 
   @spec format_units(integer, integer) :: float
-  Logger.error "Etherum.format_units(#{atomic_units}, #{divisor})"
   def format_units(atomic_units, decimals) do
     divisor = :math.pow(10, decimals)
+    Logger.error "Etherum.format_units(#{atomic_units}, #{decimals}) // #{divisor}"
     if atomic_units && divisor do
       atomic_units / divisor
     else 
