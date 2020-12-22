@@ -14,6 +14,7 @@ defmodule Ethereum.HexUtils do
       hex_string -> 
         case String.length(hex_string) do
           len when len > 1 ->
+            hex_string
             |> String.slice(2..-1)
             |> String.to_integer(16)
           len ->
