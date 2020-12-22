@@ -9,7 +9,7 @@ defmodule Ethereum.HexUtils do
   def hex_to_decimal(hex_string) do
     case hex_string do
       nil ->
-        Logger.error "hex_to_decimal // nil"
+        # Logger.error "hex_to_decimal // nil"
         0
       hex_string -> 
         case String.length(hex_string) do
