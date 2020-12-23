@@ -147,7 +147,6 @@ defmodule Ethereum.ABI do
         IEx.pry
         data
       end
-    
   end
   def decode_address_binary(data) do
     rehexed = Hexate.encode(data)
@@ -170,7 +169,7 @@ defmodule Ethereum.ABI do
 
           types_signature = Enum.join(["(", Enum.join(output_types, ","), ")"])
           # output_signature = "#{name}(#{types_signature})" # FUCKED OFF PARENS
-          # HOLY FUCK I WILL HAVE TO ADDRESS WHERE THESE PARENS ARE PILING UP FUCK MY LIFE
+         
           output_signature = "#{name}#{types_signature}" 
           outputs =
             ABI.decode(output_signature, trim_output)

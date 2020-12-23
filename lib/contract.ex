@@ -400,10 +400,6 @@ defmodule Ethereum.Contract do
             Enum.map(0..(length(tail) - 1), fn i ->
               topic_type = Enum.at(event_attributes[:topic_types], i)
               topic_data = Enum.at(tail, i)
-              # case topic_type do
-              #   "(address)" -> __MODULE__.decode_address()
-              #   other -> Ethereum.decode_abi_data(topic_type, topic_data)
-              # end
               Ethereum.decode_abi_data(topic_type, topic_data)
             end)
           Enum.zip(event_attributes[:topic_names], decoded_topics) |> Enum.into(%{})
@@ -476,7 +472,7 @@ defmodule Ethereum.Contract do
                     "blockNumber",
                     "logIndex",
                     "transactionIndex",
-                    # "transactionLogIndex"
+                    "transactionLogIndex"
                   ]),
                   format_log_data(log, event_attributes)
                 ],
