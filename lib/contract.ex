@@ -407,7 +407,7 @@ defmodule Ethereum.Contract do
         else
           %{}
         end
-        IEx.pry
+        
 
       new_data = Map.merge(indexed_fields, non_indexed_fields)
 
