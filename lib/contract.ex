@@ -478,7 +478,6 @@ defmodule Ethereum.Contract do
                 ],
                 &Map.merge/2
               )
-            
             formatted_log
           end)
         else
@@ -488,7 +487,14 @@ defmodule Ethereum.Contract do
     end
 
     def handle_call({:get_filter_changes, filter_id}, _from, state) do
-      filter_info = Map.get(state[:filters], filter_id)
+
+      filter_unhex = 
+        case filter_id do
+          "0x" <> n -> n
+          n -> n
+        end
+
+      filter_info = Map.get(state[:filters], filter_unhex)
 
       event_attributes =
         get_event_attributes(state, filter_info[:contract_name], filter_info[:event_name])
