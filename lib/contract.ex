@@ -467,8 +467,8 @@ defmodule Ethereum.Contract do
       formatted_logs =
         if logs && logs != [] do
           Enum.map(logs, fn log ->
-            # Logger.warn "event_attributes: #{event_attributes}"
-            # Logger.warn "log: #{inspect log}"
+            Logger.warn "event_attributes: #{event_attributes}"
+            Logger.warn "log: #{inspect log}"
             formatted_log =
               Enum.reduce(
                 [
