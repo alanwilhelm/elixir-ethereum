@@ -393,7 +393,7 @@ defmodule Ethereum.Contract do
             decoded_address = ABI.decode_address_binary(add)
             Map.put(non_indexed_fields, "pair", decoded_address)
         end
-      IEx.pry
+    
       indexed_fields =
         if length(log["topics"]) > 1 do
           [_head | tail] = log["topics"]
@@ -407,7 +407,7 @@ defmodule Ethereum.Contract do
         else
           %{}
         end
-
+        IEx.pry
 
       new_data = Map.merge(indexed_fields, non_indexed_fields)
 
