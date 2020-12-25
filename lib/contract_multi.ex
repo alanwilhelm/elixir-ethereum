@@ -47,13 +47,13 @@ defmodule Ethereum.ContractMulti do
       GenServer.call(process_name, {:send, {contract_name, method_name, args, options}})
     end
 
-    @spec tx_receipt(binary(), atom(), binary(), binary() | nil) :: map()
+    @spec tx_receipt(binary(), atom(), binary()) :: map()
     @doc "Returns a formatted transaction receipt for the given transaction hash(id)"
-    def tx_receipt(contract_name, tx_hash) do
+    def tx_receipt(process_name, contract_name, tx_hash) do
       GenServer.call(process_name, {:tx_receipt, {contract_name, tx_hash}})
     end
 
-    @spec filter(binary(), atom(), binary(), map(), binary() | nil) :: {:ok, binary()}
+    @spec filter(binary(), atom(), binary(), map()) :: {:ok, binary()}
     @doc "Installs a filter on the Ethereum node. This also formats the parameters, and saves relevant information to format event logs."
     def filter(process_name, contract_name, event_name, event_data \\ %{}) do
       GenServer.call(
