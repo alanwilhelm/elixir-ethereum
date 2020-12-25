@@ -5,25 +5,25 @@ defmodule Ethereum.ContractMulti do
     alias Ethereum.ABI
 
     # Client
-    @spec start_link(binary()) :: {:ok, pid()}
+    @spec start_link(atom()) :: {:ok, pid()}
     @doc "Begins the Contract process to manage all interactions with smart contracts"
     def start_link(process_name) do
       GenServer.start_link(__MODULE__, %{filters: %{}}, name: process_name)
     end
 
-    @spec register( binary(), atom(), list()) :: :ok
+    @spec register(atom(), atom(), list()) :: :ok
     @doc "Registers the contract with the ContractManager process. Only :abi is required field."
     def register(process_name, name, contract_info) do
       GenServer.cast(process_name, {:register, {name, contract_info}})
     end
 
-    @spec uninstall_filter(binary(), binary()) :: :ok
+    @spec uninstall_filter(atom(), binary()) :: :ok
     @doc "Uninstalls the filter, and deletes the data associated with the filter id"
     def uninstall_filter(process_name, filter_id) do
       GenServer.cast(process_name, {:uninstall_filter, filter_id})
     end
 
-    @spec at( binary(), atom(), binary()) :: :ok
+    @spec at(atom(), atom(), binary()) :: :ok
     @doc "Sets the address for the contract specified by the name argument"
     def at(process_name, name, address) do
       GenServer.cast(process_name, {:at, {name, address}})
@@ -62,7 +62,7 @@ defmodule Ethereum.ContractMulti do
       )
     end
 
-    @spec get_filter_logs(binary(), binary()) :: {:ok, list()}
+    @spec get_filter_logs(atom(), binary()) :: {:ok, list()}
     @doc "Using saved information related to the filter id, event logs are formatted properly"
     def get_filter_logs(process_name, filter_id) do
       GenServer.call(
@@ -372,7 +372,7 @@ defmodule Ethereum.ContractMulti do
     end
 
     defp format_log_data(log, event_attributes) do
-
+      IEx.pry
       non_indexed_fields =
         extract_non_indexed_fields(
           Map.get(log, "data"),
