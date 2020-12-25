@@ -372,7 +372,6 @@ defmodule Ethereum.ContractMulti do
     end
 
     defp format_log_data(log, event_attributes) do
-      IEx.pry
       non_indexed_fields =
         extract_non_indexed_fields(
           Map.get(log, "data"),
@@ -401,10 +400,8 @@ defmodule Ethereum.ContractMulti do
         else
           %{}
         end
-        
 
       new_data = Map.merge(indexed_fields, non_indexed_fields)
-
       Map.put(log, "data", new_data)
     end
 
