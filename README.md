@@ -1,8 +1,5 @@
 # Elixir-Ethereum
 
-## TODO: Clean up 
-
-
 
 ## Elixir interface to Ethereum JSON-RPC w/smart contract support
 This library presents a convenient interface to control one or more Ethereum nodes using the Elixir programming language. It abstracts away the need to deal with the JSON-RPC API directly and handles hex encoding/decoding when needed. 
@@ -11,14 +8,10 @@ Functions return the idiomatic `{:ok, data} | {:error, reason}` tuples whenever 
 
 This project aims to have @specs for every function and is using Dialyzer + ExUnit for testing/linting.
 
-### Recent Additions:
-- Smart Contract deployment
-- ABI registration
-- Filter registration
-- Tx receipt retrieval
-- Token
 
-Pull requests welcomed. This library also includes some of the more commonly used "admin" and "personal" API functions which will require the node to be started with `--rpcapi "db,eth,net,web3,personal"`. The sensitive interfaces should only be done in a safe network environment if at all.
+Recent Updates:
+  - Ability to set proc name of contract manager so we can run several simulatenously
+
 
 
 ### Examples of Currently Implemented JSON-RPC methods
@@ -181,3 +174,7 @@ end
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+
+TODO/Contribution:
+
+Pull requests welcomed. This library also includes some of the more commonly used "admin" and "personal" API functions which will require the node to be started with `--rpcapi "db,eth,net,web3,personal"`. The sensitive interfaces should only be done in a safe network environment if at all.
